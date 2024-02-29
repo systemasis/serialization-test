@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Serializer\Attribute\Ignore;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 
 class ListView
@@ -10,7 +11,11 @@ class ListView
         #[SerializedName('free_trial')]
         private readonly bool $freeTrial,
         #[SerializedName('can_subscribe')]
-        private readonly bool $canSubscribe
+        private readonly bool $canSubscribe,
+        #[SerializedName('has_answers')]
+        private readonly bool $hasAnswers,
+        #[SerializedName('get_ready')]
+        private readonly bool $getReady,
     )
     {
     }
@@ -23,5 +28,15 @@ class ListView
     public function canSubscribe(): bool
     {
         return $this->canSubscribe;
+    }
+
+    public function hasAnswers(): bool
+    {
+        return $this->hasAnswers;
+    }
+
+    public function getReady(): bool
+    {
+        return $this->getReady;
     }
 }
